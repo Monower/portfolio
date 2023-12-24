@@ -8,10 +8,30 @@ const Hero = dynamic(()=>import('./components/Home/Hero'),{
   )
 });
 
+const Skills = dynamic(()=> import('./components/Home/Skills'),
+{
+  ssr:false,
+  loading: () => (
+    <p>Loading...</p>
+  )
+}
+);
+
+const Experience = dynamic(()=> import('./components/Home/Experience'),
+{
+  ssr:false,
+  loading: () => (
+    <p>Loading...</p>
+  )
+}
+);
+
 export default function Home() {
   return (
     <>
       <Hero />
+      <Skills />
+      <Experience />
     </>
   );
 }

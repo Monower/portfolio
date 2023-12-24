@@ -14,6 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="shortcut icon" href="/public/code.ico" type="image/x-icon" />
+      </head>
       <body className={poppin.className}>
         <Navbar/>
         {children}
