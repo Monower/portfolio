@@ -1,30 +1,15 @@
-"use client";
+export const revalidate = 10;
 
 import dynamic from "next/dynamic";
-const Hero = dynamic(()=>import('./components/Home/Hero'),{
-  ssr:false,
-  loading: () => (
-    <p>Loading...</p>
-  )
-});
+const Hero = dynamic(()=>import('./components/Home/Hero'));
 
 const Skills = dynamic(()=> import('./components/Home/Skills'),
-{
-  ssr:false,
-  loading: () => (
-    <p>Loading...</p>
-  )
-}
 );
 
 const Experience = dynamic(()=> import('./components/Home/Experience'),
-{
-  ssr:false,
-  loading: () => (
-    <p>Loading...</p>
-  )
-}
 );
+
+const Projects = dynamic(()=> import('./components/Home/Projects'));
 
 export default function Home() {
   return (
@@ -32,6 +17,7 @@ export default function Home() {
       <Hero />
       <Skills />
       <Experience />
+      <Projects />
     </>
   );
 }

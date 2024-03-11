@@ -1,3 +1,6 @@
+'use client'
+
+
 import { Player } from "@lottiefiles/react-lottie-player";
 import Link from "next/link";
 
@@ -7,7 +10,6 @@ const Hero = () => {
       <section className="container mx-auto px-[2vw] lg:px-[3vw] h-[85vh] flex flex-col justify-center">
         <div className="flex justify-evenly items-center">
           <div className="">
-            <h3 className="text-black-400 text-18">Hello World,</h3>
             <h3 className="text-black-700 font-bold text-32">Monwer Sadaf.</h3>
             <h3 className="text-black-400 text-24 pb-5">
               Experienced Frontend Developer.
