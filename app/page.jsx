@@ -1,4 +1,4 @@
-export const revalidate = 10;
+export const revalidate = 3600;
 
 import dynamic from "next/dynamic";
 const Hero = dynamic(() => import('./components/Home/Hero'), {
