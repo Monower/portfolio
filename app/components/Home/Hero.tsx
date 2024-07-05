@@ -1,4 +1,3 @@
-import Link from "next/link";
 import dynamic from "next/dynamic";
 const HeroAnimation = dynamic(() => import("./HeroAnimation"), {
   ssr: false,
