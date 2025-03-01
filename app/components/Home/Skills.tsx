@@ -1,89 +1,34 @@
 const Skills = () => {
   return (
-    <>
-      <section className="container mx-auto px-[2vw] lg:px-[3vw]  min-h-[100vh] flex justify-center items-center">
-        <div className="w-[50%]">
-          <h3 className="text-black-900 text-24 font-bold">Skills</h3>
-          <p>I have skills in the following areas</p>
-        </div>
-        <div className="w-[50%]">
-          <div>
-            <h3 className="text-black-900 text-24 font-bold">Languages</h3>
+    <section className="container mx-auto px-4 lg:px-8 min-h-screen flex flex-col md:flex-row justify-center items-center">
+      {/* Left Text Section */}
+      <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+        <h3 className="text-black-900 text-2xl md:text-3xl font-bold">Skills</h3>
+        <p className="text-gray-600 text-lg">I have skills in the following areas</p>
+      </div>
+
+      {/* Right Skills Section */}
+      <div className="w-full md:w-1/2">
+        {[
+          { title: "Languages", skills: ["JavaScript", "TypeScript", "PHP"] },
+          { title: "Frontend", skills: ["ReactJS", "Redux", "NextJS", "TailwindCSS", "HTML", "CSS"] },
+          { title: "Backend", skills: ["NodeJS", "ExpressJS", "PHP"] },
+          { title: "Databases", skills: ["MySQL"] },
+          { title: "Cloud", skills: ["Firebase"] }
+        ].map((category, index) => (
+          <div key={index} className="mb-6">
+            <h3 className="text-black-900 text-xl font-bold">{category.title}</h3>
             <div className="flex flex-wrap">
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                JavaScript
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                Typescript
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                PHP
-              </span>
+              {category.skills.map((skill, idx) => (
+                <span key={idx} className="bg-gray-100 text-gray-800 py-1 px-3 rounded-full text-sm m-1">
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
-          <div>
-            <h3 className="text-black-900 text-24 font-bold">Frontend</h3>
-            <div className="flex flex-wrap">
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                ReactJS
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                Redux
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                NextJS
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                TailwindCSS
-              </span>
-              {/* <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">Styled Components</span> */}
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                JavaScript
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                Typescript
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                HTML
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                CSS
-              </span>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-black-900 text-24 font-bold">Backend</h3>
-            <div className="flex flex-wrap">
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                NodeJS
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                ExpressJS
-              </span>
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                PHP
-              </span>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-black-900 text-24 font-bold">Databases</h3>
-            <div className="flex flex-wrap">
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                MySQL
-              </span>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-black-900 text-24 font-bold">Cloud</h3>
-            <div className="flex flex-wrap">
-              <span className="bg-black-100 py-1 px-2 rounded-full text-black-600 m-1">
-                Firebase
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+        ))}
+      </div>
+    </section>
   );
 };
 

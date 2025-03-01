@@ -1,7 +1,11 @@
-import Link from "next/link";
-import JobCard from "../JobCard";
+'use client'
 
-// Sample data for jobs
+
+// Importing the necessary hook from 'next/navigation'
+import { useRouter } from "next/navigation";
+import JobCard from "../components/JobCard";
+
+// Sample job data
 const jobData = [
   {
     id: 1,
@@ -41,32 +45,31 @@ const jobData = [
   },
 ];
 
-const Experience = () => {
+const Home = () => {
+  const router = useRouter(); // Using the correct hook for App Router
+
   return (
-    <section className="container mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between gap-8 min-h-screen">
-      {/* Title Section */}
-      <div className="text-center md:text-left w-full md:w-1/3">
-        <h3 className="text-3xl font-semibold text-gray-900">Experience</h3>
-        <p className="mt-2 text-gray-600">The journey of my professional growth</p>
-      </div>
+    <section className="container mx-auto px-6 lg:px-12 py-12">
+      {/* Back Button */}
+      <button
+        onClick={() => router.back()} // Navigates back to the previous page
+        className="mb-8 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-all duration-300"
+      >
+        Back
+      </button>
+
+      <h3 className="text-3xl font-semibold text-gray-900 text-center mb-8">
+        Full Experience
+      </h3>
 
       {/* Job Cards Section */}
-      <div className="w-full md:w-2/3">
-        {jobData.slice(0, 3).map((job) => (
+      <div className="w-full">
+        {jobData.map((job) => (
           <JobCard key={job.id} job={job} />
         ))}
-        
-        {/* "View All" button if there are more than 3 jobs */}
-        {jobData.length > 3 && (
-          <Link href="/experience" passHref>
-            <button className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300">
-              View All Experience
-            </button>
-          </Link>
-        )}
       </div>
     </section>
   );
 };
 
-export default Experience;
+export default Home;

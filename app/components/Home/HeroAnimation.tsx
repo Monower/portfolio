@@ -3,7 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 
 const HeroAnimation = () => { 
     return (
-        <div className="w-1/2">
+        <div className="w-full">
             <Player src="/animation/hero_animation.json" autoplay loop />
         </div>
     )
