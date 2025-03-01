@@ -58,7 +58,9 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          <HeroAnimation />
+          <div className="w-1/2 -z-50">
+            <Player src="/animation/hero_animation.json" autoplay loop />
+          </div>
         </div>
       </section>
       <div className="w-full flex justify-center">
