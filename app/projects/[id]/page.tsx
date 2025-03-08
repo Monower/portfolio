@@ -34,12 +34,13 @@ const getProjectById = (id: string) => {
 const Home = ({ params }) => {
   const { id } = params; // Extract the project ID from the URL params
   const project = getProjectById(id); // Get project data based on ID
+  const router = useRouter();
 
   if (!project) {
     return <div className="text-center text-red-500">Project not found!</div>;
   }
 
-  const router = useRouter();
+  
 
   const handleBackClick = () => {
     router.back(); // Go back to the previous page
