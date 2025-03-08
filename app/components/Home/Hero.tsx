@@ -1,4 +1,7 @@
 import dynamic from "next/dynamic";
+import { IoMdMail } from "react-icons/io";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const HeroAnimation = dynamic(() => import("./HeroAnimation"), {
   ssr: false,
@@ -6,17 +9,46 @@ const HeroAnimation = dynamic(() => import("./HeroAnimation"), {
 });
 
 const Hero = () => {
+  const handleScroll = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const iconConfig = {
+    size: 24,
+    color: "#1f2937",
+  }
+
+  const socialSites = [
+    {
+      name: "Email",
+      link: "mailto:monowersadaf@gmail.com",
+      icon: <IoMdMail {...iconConfig} />,
+    },
+    {
+      name: "Github",
+      link: "https://github.com/Monower",
+      icon: <FaGithub {...iconConfig} />,
+    },
+    {
+      name: "Linkedin",
+      link: "https://www.linkedin.com/in/monwer-sadaf-39166b1b6/",
+      icon: <FaLinkedin {...iconConfig} />,
+    },
+  ];
+
   return (
     <>
       <section className="container mx-auto px-4 lg:px-12 h-[85vh] flex flex-col justify-center">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* Text Section */}
           <div className="text-center md:text-left max-w-lg">
-            <h3 className="text-gray-800 font-bold text-3xl sm:text-4xl">
+            <h3 className="text-gray-800 font-bold text-3xl sm:text-4xl dark:text-white">
               Monwer Sadaf.
             </h3>
             <h3 className="text-gray-600 text-lg sm:text-xl pb-5">
-              Experienced Frontend Developer.
+              Experienced Software Engineer.
             </h3>
             {/* Buttons */}
             <div className="flex justify-center md:justify-start space-x-4">
@@ -28,7 +60,20 @@ const Hero = () => {
               </button>
             </div>
             {/* Social Links */}
+
             <div className="flex justify-center md:justify-start space-x-4 pt-5">
+              {socialSites.map((site, index) => (
+                <a
+                  key={index}
+                  href={site.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {site.icon}
+                </a>
+              ))}
+            </div>
+            {/* <div className="flex justify-center md:justify-start space-x-4 pt-5">
               {["#", "#", "#"].map((link, index) => (
                 <a key={index} href={link} target="_blank" rel="noopener noreferrer">
                   <svg
@@ -40,10 +85,9 @@ const Hero = () => {
                   </svg>
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
-          {/* Animation Section */}
           <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center">
             <HeroAnimation />
           </div>

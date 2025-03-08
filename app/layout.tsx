@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from './components/layouts/Navbar'
 import Footer from './components/layouts/Footer'
 import React from 'react'
+import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 
 const poppin = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'] })
 
@@ -18,11 +19,14 @@ export default function RootLayout({ children }: {children: React.JSX.Element}) 
       <head>
         <link rel="shortcut icon" href="/public/code.ico" type="image/x-icon" />
       </head>
-      <body className={poppin.className}>
-        <Navbar/>
+      <body className={poppin.className+' bg-gray-100 dark:bg-gray-900'}>
+        <Navbar />
+        <div className="p-4">
+          {/* <ThemeToggle /> */}
+        </div>
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }
